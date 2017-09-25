@@ -20,12 +20,16 @@ class App extends Component {
             this.setState({ video, selectedVideo: video[0] });
         });
     }
+    bigImg(x)
+    {
+        alert(x)
+    }
     render() {
         //debugger
         return (
             <div>
                 <SearchBar onSearchTermChange={term=>this.videoSearch(term)} />
-                <VideoDetail video={this.state.selectedVideo} />
+                <VideoDetail video={this.state.selectedVideo} onHover={hover=>this.bigImg(hover)}/>
                 <VideoList video={this.state.video} onVideoSelect={selectedVideo => this.setState({ selectedVideo })} />
             </div>
         )
