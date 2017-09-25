@@ -10,27 +10,30 @@ class SearchBar extends Component//Class Component Ability to comuniate other co
 
     constructor(props) {
         super(props);
-        this.state={term:''}
+        this.state = { term: '' }
     }
 
 
     render() {
-        
+
         //return <input onChange={this.onInputChange}/>
         return (
             <div>
-            <input 
-            value={this.state.term}
-            onChange={(event) => this.setState({term:event.target.value})} />
-             
-</div>
+                <input
+                    value={this.state.term}
+                    onChange={(event) => this.onInputChange( event.target.value )} />
+
+            </div>
         )
     }
 
-    //     onInputChange(event)
-    //     {
+     onInputChange(term)
+  {
+      debugger
+      this.setState({term});
+      this.props.onSearchTermChange(term);
     // console.log(event.target.value);
-    //     }
+ }
 }
 
 export default SearchBar;
